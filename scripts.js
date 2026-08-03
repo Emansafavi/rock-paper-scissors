@@ -63,7 +63,7 @@ function resetGame() {
   roundResultsMsg.innerText=""
 }
 
-resetGameBtn.addEventListener("click", resetGameBtn);
+resetGameBtn.addEventListener("click", resetGame);
 
 const rockBtn = document.getElementById("rock-btn");
 const paperBtn = document.getElementById("paper-btn");
