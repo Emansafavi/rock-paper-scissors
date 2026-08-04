@@ -46,9 +46,12 @@ function showResults(userOption) {
     winnerMsgElement.innerText = `${
       playerScore === 3 ? "Player" : "Computer"
     } has won the game!`;
-
+    
     resetGameBtn.style.display = "block";
     optionsContainer.style.display = "none";
+     roundResultsMsg.style.display = "none"
+    if (playerScore === 3)
+    {winnerMsgElement.style.color = "green"}  else {winnerMsgElement.style.color = "red"}
   }
 };
 
@@ -59,6 +62,7 @@ function resetGame() {
   computerScoreSpanElement.innerText=computerScore;
   resetGameBtn.style.display="none"
   optionsContainer.style.display="block"
+  roundResultsMsg.style.display="block"
   winnerMsgElement.innerText=""
   roundResultsMsg.innerText=""
 }

@@ -22,6 +22,7 @@ body {
   padding: 24px;
   background: var(--background);
   color: var(--text);
+  align-items: center;
 }
 
 button,
@@ -164,24 +165,27 @@ h1 {
 .results-container {
   min-height: 150px;
   padding: 32px;
-  text-align: left;
+  text-align: center;
   border-bottom: 2px solid var(--line);
 }
 
 #results-msg {
   font-size: 1.2rem;
+  align-items: center;
 }
 
 #winner-msg {
   margin-top: 12px;
   color: var(--accent);
   font-size: 1.5rem;
+  align-items: center;
 }
 
 .reset-btn {
   display: none;
   margin-top: 24px;
   padding: 10px 16px;
+  align-items: center;
 }
 
 .rules-container {
