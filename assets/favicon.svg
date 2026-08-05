@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rock paper scissors game icon">
+  <rect x="4" y="4" width="56" height="56" rx="8" fill="#faf9f6" stroke="#161616" stroke-width="4"/>
+
+  <path d="M13 41c-1-6 2-12 8-14 6-3 14 1 16 8 2 6-2 12-8 14-7 2-15-1-16-8Z" fill="#d7d2c6" stroke="#161616" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M19 34c3-2 7-2 10 1" fill="none" stroke="#161616" stroke-width="2" stroke-linecap="round"/>
+
+  <path d="M28 12h20l6 6v27H28V12Z" fill="#ffffff" stroke="#161616" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M48 12v8h6" fill="none" stroke="#161616" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M34 26h14M34 33h12" stroke="#a4161a" stroke-width="3" stroke-linecap="round"/>
+
+  <circle cx="21" cy="52" r="5" fill="#faf9f6" stroke="#a4161a" stroke-width="3"/>
+  <circle cx="37" cy="52" r="5" fill="#faf9f6" stroke="#a4161a" stroke-width="3"/>
+  <path d="M25 49l26-21M41 49 51 28" fill="none" stroke="#161616" stroke-width="4" stroke-linecap="round"/>
+</svg>
