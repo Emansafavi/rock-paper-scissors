@@ -1,5 +1,20 @@
 const options = ["Rock", "Paper", "Scissors"];
 
+
+const playerScoreSpanElement = document.getElementById("player-score");
+const computerScoreSpanElement = document.getElementById("computer-score");
+const roundResultsMsg = document.getElementById("results-msg");
+const winnerMsgElement = document.getElementById("winner-msg");
+const optionsContainer = document.querySelector(".options-container");
+const resetGameBtn = document.getElementById("reset-game-btn");
+const choicesMsg = document.getElementById("choices-msg");
+const roundCounterElement = document.getElementById("round-counter");
+const roundHistoryElement = document.getElementById("round-history");
+
+let roundNumber = 0;
+let roundHistory = [];
+
+
 function getRandomComputerResult() {
   const randomIndex = Math.floor(Math.random() * options.length);
   return options[randomIndex];
@@ -30,21 +45,14 @@ function getRoundResults(userOption, computerResult) {
   }
 }
 
-const playerScoreSpanElement = document.getElementById("player-score");
-const computerScoreSpanElement = document.getElementById("computer-score");
-const roundResultsMsg = document.getElementById("results-msg");
-const winnerMsgElement = document.getElementById("winner-msg");
-const optionsContainer = document.querySelector(".options-container");
-const resetGameBtn = document.getElementById("reset-game-btn");
-const choicesMsg = document.getElementById("choices-msg");
 
 function showResults(userOption) {
   const computerResult = getRandomComputerResult();
   roundResultsMsg.innerText = getRoundResults(userOption, computerResult);
   computerScoreSpanElement.innerText = computerScore;
   playerScoreSpanElement.innerText = playerScore;
-  choicesMsg.innerHTML = `Player chose: <strong>${userOption} </strong><img class="gif-icon" src="./assets/${userOption.toLowerCase()}.gif" alt="${userOption}" /> 
-   Computer chose: <strong>${computerResult} </strong><img class="gif-icon" src="./assets/${computerResult.toLowerCase()}.gif" alt="${computerResult}" />`;
+  choicesMsg.innerHTML = `You: <strong>${userOption} </strong><img class="gif-icon" src="./assets/${userOption.toLowerCase()}.gif" alt="${userOption}" /> 
+   & Computer: <strong>${computerResult} </strong><img class="gif-icon" src="./assets/${computerResult.toLowerCase()}.gif" alt="${computerResult}" />`;
 
   if (playerScore === 3 || computerScore === 3) {
     winnerMsgElement.innerText = `${
@@ -60,6 +68,11 @@ function showResults(userOption) {
   }
   roundNumber++;
     roundCounterElement.innerText = `Round: ${roundNumber}`;
+    roundHistory.unshift(`Round ${roundNumber}: You chose ${userOption}, computer chose ${computerResult}`);
+    if (roundHistory.length > 15) {
+      roundHistory.pop();
+    }
+    roundHistoryElement.innerHTML = roundHistory.map((round) => `${round}`).join("<br>");
 };
 
 function resetGame() {
@@ -75,6 +88,8 @@ function resetGame() {
   choicesMsg.innerText=""
   roundNumber = 0;
   roundCounterElement.innerText = "Round: 0";
+  roundHistory = [];
+  roundHistoryElement.innerHTML = "";
 
 }
 
@@ -97,6 +112,5 @@ scissorsBtn.addEventListener("click", function () {
 });
 
 
-let roundNumber = 0;
-const roundCounterElement = document.getElementById("round-counter");
+
 

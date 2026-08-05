@@ -68,17 +68,25 @@
     </section>
 
     <section class="results-container" aria-live="polite" aria-label="Game result">
-      
+      <div class="result-summary">
       <p id="results-msg">Waiting for your move.</p>
       <p id="winner-msg"></p>
       <p id="choices-msg"></p>
+
+      </div>
+      <br><br>
+       <div class="history-container">
+          <h2>Round history</h2>
+          <ol id="round-history" class="round-history"></ol>
+      </div>
       
-      <div class="results-container">
+      <div class="reset-container">
         <button class="reset-btn" id="reset-game-btn" type="button">
           Start again
         </button>
       </div>
     </section>
+   
 
     <details class="rules-container">
       <summary>How it works</summary>
@@ -96,6 +104,9 @@
       </div>
     </details>
   </main>
+  <footer class="footer">
+    <p>Made by <a href="https://github.com/Emansafavi" target="_blank" rel="noopener noreferrer">Eman Safavi</a></p>
+  </footer>
 </body>
 
 </html>
