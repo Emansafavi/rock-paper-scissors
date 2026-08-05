@@ -36,11 +36,15 @@ const roundResultsMsg = document.getElementById("results-msg");
 const winnerMsgElement = document.getElementById("winner-msg");
 const optionsContainer = document.querySelector(".options-container");
 const resetGameBtn = document.getElementById("reset-game-btn");
+const choicesMsg = document.getElementById("choices-msg");
 
 function showResults(userOption) {
   roundResultsMsg.innerText = getRoundResults(userOption);
   computerScoreSpanElement.innerText = computerScore;
   playerScoreSpanElement.innerText = playerScore;
+  const computerResult = getRandomComputerResult();
+  choicesMsg.innerHTML = `Player chose: <strong>${userOption} </strong><img class="gif-icon" src="./assets/${userOption.toLowerCase()}.gif" alt="${userOption}" /> 
+   Computer chose: <strong>${computerResult} </strong><img class="gif-icon" src="./assets/${computerResult.toLowerCase()}.gif" alt="${computerResult}" />`;
 
   if (playerScore === 3 || computerScore === 3) {
     winnerMsgElement.innerText = `${
@@ -49,7 +53,7 @@ function showResults(userOption) {
     
     resetGameBtn.style.display = "block";
     optionsContainer.style.display = "none";
-     roundResultsMsg.style.display = "none"
+    roundResultsMsg.style.display = "none"
     if (playerScore === 3)
     {winnerMsgElement.style.color = "green"}  else {winnerMsgElement.style.color = "red"}
   }
@@ -64,7 +68,9 @@ function resetGame() {
   optionsContainer.style.display="block"
   roundResultsMsg.style.display="block"
   winnerMsgElement.innerText=""
-  roundResultsMsg.innerText=""
+  roundResultsMsg.innerText="Waiting for your move."
+  choicesMsg.innerText=""
+
 }
 
 resetGameBtn.addEventListener("click", resetGame);
