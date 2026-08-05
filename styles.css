@@ -95,8 +95,11 @@ h1 {
 }
 
 .score-divider {
+  display: flex;
+  flex-direction: column;
   padding: 0 20px;
   font-size: 2rem;
+  text-align: center;
 }
 
 .options-container {
@@ -133,9 +136,9 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  min-height: 130px;
+  min-height: 80px;
   padding: 16px;
-  text-align: left;
+  text-align: center;
   font-size: 1.1rem;
 }
 
@@ -178,7 +181,7 @@ h1 {
   margin-top: 12px;
   color: var(--accent);
   font-size: 1.5rem;
-  align-items: center;
+  
 }
 
 .reset-btn {
@@ -227,6 +230,14 @@ h1 {
 
 .rules-content ul {
   padding-left: 20px;
+}
+.round-counter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 button:focus-visible,

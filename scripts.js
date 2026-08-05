@@ -16,8 +16,8 @@ function hasPlayerWonTheRound(playerChoice, computerChoice) {
 let playerScore = 0;
 let computerScore = 0;
 
-function getRoundResults(userOption) {
-  const computerResult = getRandomComputerResult();
+function getRoundResults(userOption, computerResult) {
+
 
   if (hasPlayerWonTheRound(userOption, computerResult)) {
     playerScore++;
@@ -39,10 +39,10 @@ const resetGameBtn = document.getElementById("reset-game-btn");
 const choicesMsg = document.getElementById("choices-msg");
 
 function showResults(userOption) {
-  roundResultsMsg.innerText = getRoundResults(userOption);
+  const computerResult = getRandomComputerResult();
+  roundResultsMsg.innerText = getRoundResults(userOption, computerResult);
   computerScoreSpanElement.innerText = computerScore;
   playerScoreSpanElement.innerText = playerScore;
-  const computerResult = getRandomComputerResult();
   choicesMsg.innerHTML = `Player chose: <strong>${userOption} </strong><img class="gif-icon" src="./assets/${userOption.toLowerCase()}.gif" alt="${userOption}" /> 
    Computer chose: <strong>${computerResult} </strong><img class="gif-icon" src="./assets/${computerResult.toLowerCase()}.gif" alt="${computerResult}" />`;
 
@@ -54,9 +54,12 @@ function showResults(userOption) {
     resetGameBtn.style.display = "block";
     optionsContainer.style.display = "none";
     roundResultsMsg.style.display = "none"
+    
     if (playerScore === 3)
     {winnerMsgElement.style.color = "green"}  else {winnerMsgElement.style.color = "red"}
   }
+  roundNumber++;
+    roundCounterElement.innerText = `Round: ${roundNumber}`;
 };
 
 function resetGame() {
@@ -70,6 +73,8 @@ function resetGame() {
   winnerMsgElement.innerText=""
   roundResultsMsg.innerText="Waiting for your move."
   choicesMsg.innerText=""
+  roundNumber = 0;
+  roundCounterElement.innerText = "Round: 0";
 
 }
 
@@ -90,3 +95,8 @@ paperBtn.addEventListener("click", function () {
 scissorsBtn.addEventListener("click", function () {
   showResults("Scissors");
 });
+
+
+let roundNumber = 0;
+const roundCounterElement = document.getElementById("round-counter");
+
